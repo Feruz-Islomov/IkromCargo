@@ -13,7 +13,7 @@ export default async function (req, res) {
       httpOnly: true,
       secure: process.env.NODE_ENV !== "development",
       sameSite: "strict",
-      maxAge: -1,
+      maxAge: 1,
       path: "/",
     });
 
