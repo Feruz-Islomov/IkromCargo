@@ -12,7 +12,7 @@ export default function middleware(req) {
       try {
         //for payload const user = verify(jwt, seccret) console.log(user) => {expire:.., user:Admin, int...}
         verify(jwt, secret);
-        return NextResponse.redirect("/");
+        return NextResponse.redirect("/table");
       } catch (e) {
         return NextResponse.next();
       }
@@ -21,14 +21,14 @@ export default function middleware(req) {
 
   if (url.includes("/table")) {
     if (jwt === undefined) {
-      return NextResponse.redirect("/");
+      return NextResponse.redirect("/login");
     }
 
     try {
       verify(jwt, secret);
       return NextResponse.next();
     } catch (e) {
-      return NextResponse.redirect("/");
+      return NextResponse.redirect("/login");
     }
   }
   return NextResponse.next();
