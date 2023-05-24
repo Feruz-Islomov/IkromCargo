@@ -68,7 +68,7 @@ function Home({ posts }) {
     }, 1);
   }
   const handleLogOut = async () => {
-    const user = await axios.get("/api/auth/logout");
+    const user = await axios.post("/api/auth/logout");
     router.push("/login");
     console.log(user);
   };

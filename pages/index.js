@@ -14,7 +14,7 @@ export default function Home() {
   // };
 
   const handleLogOut = async () => {
-    const user = await axios.get("/api/auth/logout");
+    const user = await axios.post("/api/auth/logout");
     if (user.data.bool === true) {
       setIsLoggedIn(true);
     } else {
