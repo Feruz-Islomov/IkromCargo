@@ -134,6 +134,7 @@ function Home() {
     setTotalPrice(0);
     setInvoicedata({});
     setTabledata([]);
+    console.log(response);
     if (response.data.message) {
       console.log(response.data.message);
     }

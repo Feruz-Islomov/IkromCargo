@@ -1,29 +1,3 @@
-// import users from "../users.json";
-// import invoices from "../invoice.json";
-
-// const secret = process.env.SECRET;
-
-// export default async function (req, res) {
-//   const { id } = req.body;
-
-//   console.log(arr);
-
-//   const { cookies } = req;
-//   const token = cookies.OursiteJWT;
-//   if (!token) {
-//     return res.json({ message: "Invalid token1!", bool: false });
-//   }
-//   verify(token, secret);
-//   //   if (!user) {
-//   //     res.json({ message: "No such user!" });
-//   //   } else if (user && user.isAdmin === true) {
-//   //     verify(token, secret);
-//   //     res.status(200).json({ message: "Success!", user, invoices });
-//   //   } else {
-//   //     res.json({ message: "Not authorized to this page" });
-//   //   }
-
-// }
 import { verify } from "jsonwebtoken";
 import fs from "fs";
 import path from "path";
