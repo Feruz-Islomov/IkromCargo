@@ -1,4 +1,5 @@
 import axios from "axios";
+import Link from "next/link";
 import React, { useState } from "react";
 
 export default function Invoices() {
@@ -64,7 +65,15 @@ export default function Invoices() {
   };
   return (
     <div className="container">
-      <div id="inp" className="row justify-content-center mt-5">
+      <div id="printbtn" className="mt-3">
+        <Link href={"/"}>
+          <button className="btn btn-secondary ">Home</button>
+        </Link>
+        <button className="btn btn-danger mx-3" onClick={hideClass}>
+          print
+        </button>
+      </div>
+      <div id="inp" className="row justify-content-center mt-3">
         <div className="col-md-6">
           <div className="card">
             <div className="card-body">
@@ -101,13 +110,6 @@ export default function Invoices() {
         </div>
       </div>
       <div id="template" className="mt-2 d-none">
-        <button
-          id="printbtn"
-          className="btn btn-danger mb-3"
-          onClick={hideClass}
-        >
-          print
-        </button>
         <div className="invoice ">
           <div className="row">
             <div className="col-5  text-center">{inv.tadress}</div>

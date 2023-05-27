@@ -17,7 +17,7 @@ export default async function (req, res) {
   }
 
   if (!user) {
-    res.json({ message: "No such user!" });
+    res.json({ message: "Mavjud emas!" });
   } else if (user && user.isAdmin === true) {
     verify(token, secret);
     res.status(200).json({ message: "Success!", user, invoices });

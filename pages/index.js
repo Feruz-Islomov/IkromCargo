@@ -5,10 +5,10 @@ import React, { useEffect, useState } from "react";
 export default function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleGetUser = async () => {
-    const user = await axios.get("/api/user");
-    console.log(user);
-  };
+  // const handleGetUser = async () => {
+  //   const user = await axios.get("/api/user");
+  //   console.log(user);
+  // };
 
   const handleLogOut = async () => {
     const user = await axios.post("/api/auth/logout");
@@ -17,7 +17,6 @@ export default function Home() {
     } else {
       setIsLoggedIn(false);
     }
-    // console.log(user.data.bool);
   };
 
   useEffect(async () => {
@@ -31,22 +30,27 @@ export default function Home() {
 
   return (
     <div className="cont">
-      <button onClick={handleGetUser}>user</button>
+      {/* <button onClick={handleGetUser}>user</button> */}
       <nav
         className="navbar navbar-expand navbar-dark bg-dark"
         aria-label="Second navbar example"
       >
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
-            Ikrom Cargo
-          </a>
+          <Link href={"/"}>
+            <div className="navbar-brand cursor">Ikrom Cargo</div>
+          </Link>
         </div>
         <div className="collapse navbar-collapse" id="navbarsExample02">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
-              <a className="nav-link " aria-current="page" href="/table">
-                Table
-              </a>
+              <Link aria-current="page" href={"/invoices"}>
+                <div className="nav-link cursor">Admin</div>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link aria-current="page" href={"/table"}>
+                <div className="nav-link cursor">Table</div>
+              </Link>
             </li>
             <li className="nav-item">
               {isLoggedIn ? (
@@ -147,16 +151,11 @@ export default function Home() {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-      <div className="bg"></div>
+      <div className="bg">
+        <div className="fs-1 text-info  text-center">
+          IKROM CARGO +998913131122
+        </div>
+      </div>
     </div>
   );
 }
-
-// function checkIfAdmin(username, password) {
-//   const user = users.find(user => user.name === username && user.password === password);
-//   return user && user.isAdmin;
-// }
-
-// // Example usage:
-// const isAdmin = checkIfAdmin('John', '123');
-// console.log(isAdmin); // true

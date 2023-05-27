@@ -1,14 +1,14 @@
 [
   {
     "id": 1,
-    "name": "Jon",
-    "password": "123",
+    "name": "Ikrom",
+    "password": "6a5s4da6",
     "isAdmin": true
   },
   {
     "id": 2,
-    "name": "Jan",
-    "password": "123",
+    "name": "user",
+    "password": "5646ad6a",
     "isAdmin": false
   }
 ]
