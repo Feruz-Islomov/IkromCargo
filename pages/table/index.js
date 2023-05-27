@@ -1,15 +1,11 @@
-// import Head from "next/head";
-// import Image from "next/image";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faCheck, faTrash } from "@fortawesome/free-solid-svg-icons";
-// import styles from "../styles/Home.module.css";
+import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import data from "../../jsd.js";
 import { useEffect, useState } from "react";
 import Link from "next/link.js";
 import { useRouter } from "next/router.js";
 
-function Home({ posts }) {
+function Home() {
   const [product, setProduct] = useState("");
   const [probj, setProbj] = useState({});
   const [quantity, setQuantity] = useState("");
@@ -63,7 +59,11 @@ function Home({ posts }) {
         recpassport: recpassport,
         recbirth: recbirth,
         recphone: recphone,
+        totalPrice: totalPrice,
+        date: date,
       });
+      alert("Malumot qo'shildi, bazaga yuboring!");
+      document.getElementById("e").classList.remove("d-none");
     }
   }
   function additem() {
@@ -115,9 +115,16 @@ function Home({ posts }) {
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const formData = { invoice: invoicedata, tabledata: tabledata };
+    document.getElementById("e").classList.add("d-none");
+    const formData = {
+      id: uuidv4(),
+      invoice: invoicedata,
+      tabledata: tabledata,
+      date: date,
+    };
     const response = await axios.post("/api/invoice", formData);
     alert(response.data.message);
+    setTurkish("");
     setUzbek("");
     setInvcode("");
     setRecname("");
@@ -159,7 +166,7 @@ function Home({ posts }) {
               <input
                 type="text"
                 className="form-control"
-                placeholder="turkish..."
+                placeholder="adress1..."
                 aria-label="t-adress"
                 value={turkish}
                 aria-describedby="basic-addon1"
@@ -168,7 +175,7 @@ function Home({ posts }) {
               <input
                 type="text"
                 className="form-control"
-                placeholder="uzbek..."
+                placeholder="adress2..."
                 aria-label="u-adress"
                 value={uzbek}
                 aria-describedby="basic-addon1"
@@ -177,7 +184,7 @@ function Home({ posts }) {
               <input
                 type="text"
                 className="form-control"
-                placeholder="code..."
+                placeholder="#..."
                 aria-label="in-code"
                 value={invcode}
                 aria-describedby="basic-addon1"
@@ -188,7 +195,7 @@ function Home({ posts }) {
               <input
                 type="text"
                 className="form-control"
-                placeholder="rec-name..."
+                placeholder="name..."
                 aria-label="r-name"
                 value={recname}
                 aria-describedby="basic-addon1"
@@ -197,7 +204,7 @@ function Home({ posts }) {
               <input
                 type="text"
                 className="form-control"
-                placeholder="rec-adress..."
+                placeholder="adress..."
                 aria-label="r-adress"
                 value={recadress}
                 aria-describedby="basic-addon1"
@@ -206,7 +213,7 @@ function Home({ posts }) {
               <input
                 type="text"
                 className="form-control"
-                placeholder="rec-passport..."
+                placeholder="passport..."
                 aria-label="passport"
                 value={recpassport}
                 aria-describedby="basic-addon1"
@@ -215,7 +222,7 @@ function Home({ posts }) {
               <input
                 type="text"
                 className="form-control"
-                placeholder="rec-birthdate..."
+                placeholder="birth..."
                 aria-label="birth"
                 value={recbirth}
                 aria-describedby="basic-addon1"
@@ -224,7 +231,7 @@ function Home({ posts }) {
               <input
                 type="text"
                 className="form-control"
-                placeholder="rec-phone..."
+                placeholder="tel..."
                 aria-label="r-phone"
                 value={recphone}
                 aria-describedby="basic-addon1"
@@ -237,7 +244,8 @@ function Home({ posts }) {
                 add
               </button>
               <button
-                className="form-control btn btn-danger"
+                id="e"
+                className="form-control btn btn-warning d-none"
                 onClick={handleSubmit}
               >
                 send
@@ -283,16 +291,16 @@ function Home({ posts }) {
             </div>
           </div>
           {product
-            ? posts
+            ? data
                 .filter(
-                  (post) =>
-                    post.name.toLowerCase().includes(product) ||
-                    post.lotin.toLowerCase().includes(product)
+                  (item) =>
+                    item.name.toLowerCase().includes(product) ||
+                    item.lotin.toLowerCase().includes(product)
                 )
-                .map((post) => {
+                .map((item) => {
                   return (
-                    <div key={post.id} onClick={() => chooseProduct(post)}>
-                      {post.id} {post.name}
+                    <div key={item.id} onClick={() => chooseProduct(item)}>
+                      {item.id} {item.name}
                     </div>
                   );
                 })
@@ -333,42 +341,6 @@ function Home({ posts }) {
           <div className="row text-center">
             <div>load details</div>
           </div>
-          {/* <table className="invoice">
-            <thead className="text-center">
-              <tr>
-                <td> Registon Samarkand </td>
-                <td rowSpan="2"> --- INVOICE #3 ---</td>
-                <td>Registon Samarkand</td>
-              </tr>
-              <tr>
-                <td> </td>
-                <td> </td>
-              </tr>
-              <tr>
-                <td>Receiver</td>
-                <td colSpan="2"></td>
-              </tr>
-              <tr>
-                <td>Receiver's adress</td>
-                <td colSpan="2"></td>
-              </tr>
-              <tr>
-                <td>Receiver's passport</td>
-                <td colSpan="2"></td>
-              </tr>
-              <tr>
-                <td>Receiver's birthdate</td>
-                <td colSpan="2"></td>
-              </tr>
-              <tr>
-                <td>Receiver's phone number</td>
-                <td colSpan="2"></td>
-              </tr>
-              <tr>
-                <td colSpan="3">load details</td>
-              </tr>
-            </thead>
-          </table> */}
         </div>
         <div className="row">
           <table className="col align-self-start">
@@ -450,15 +422,3 @@ function Home({ posts }) {
   );
 }
 export default Home;
-
-export async function getServerSideProps() {
-  // const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-  // const posts = await res.json();
-  // console.log(data);
-
-  return {
-    props: {
-      posts: data,
-    },
-  };
-}

@@ -8,12 +8,6 @@ export default function Login() {
 
   const router = useRouter();
 
-  const formStyle = {
-    display: "flex",
-    flexDirection: "column",
-    maxWidth: "560px",
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 

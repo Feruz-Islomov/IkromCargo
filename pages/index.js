@@ -5,11 +5,10 @@ import React, { useEffect, useState } from "react";
 export default function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // const handleGetUser = async () => {
-  //   const user = await axios.get("/api/user");
-
-  //   console.log(user.data.bool);
-  // };
+  const handleGetUser = async () => {
+    const user = await axios.get("/api/user");
+    console.log(user);
+  };
 
   const handleLogOut = async () => {
     const user = await axios.post("/api/auth/logout");
@@ -32,6 +31,7 @@ export default function Home() {
 
   return (
     <div className="cont">
+      <button onClick={handleGetUser}>user</button>
       <nav
         className="navbar navbar-expand navbar-dark bg-dark"
         aria-label="Second navbar example"
@@ -151,3 +151,12 @@ export default function Home() {
     </div>
   );
 }
+
+// function checkIfAdmin(username, password) {
+//   const user = users.find(user => user.name === username && user.password === password);
+//   return user && user.isAdmin;
+// }
+
+// // Example usage:
+// const isAdmin = checkIfAdmin('John', '123');
+// console.log(isAdmin); // true

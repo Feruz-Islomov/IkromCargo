@@ -1,25 +1,25 @@
-/* eslint-disable import/no-anonymous-default-export */
 import { sign } from "jsonwebtoken";
 import { serialize } from "cookie";
+import users from "../users.json";
 
 const secret = process.env.SECRET;
 
 export default async function (req, res) {
   const { username, password } = req.body;
+  const user = users.find(
+    (user) => user.name === username && user.password === password
+  );
 
-  // Check in the database
-  // if a user with this username
-  // and password exists
-  if (username === "Admin" && password === "Admin") {
+  if (user) {
     const token = sign(
       {
-        exp: Math.floor(Date.now() / 1000) + 60 * 60 * 24, // 1 days
-        username: username,
+        exp: Math.floor(Date.now() / 1000) + 60 * 60 * 24, // 1 day
+        id: user.id,
       },
       secret
     );
 
-    const serialised = serialize("OursiteJWT", token, {
+    const serialized = serialize("OursiteJWT", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV !== "development",
       sameSite: "strict",
@@ -27,8 +27,7 @@ export default async function (req, res) {
       path: "/",
     });
 
-    res.setHeader("Set-Cookie", serialised);
-
+    res.setHeader("Set-Cookie", serialized);
     res.status(200).json({ message: "Success!" });
   } else {
     res.json({ message: "Invalid credentials!" });

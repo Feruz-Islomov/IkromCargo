@@ -10,7 +10,6 @@ export default function middleware(req) {
   if (url.includes("/login")) {
     if (jwt) {
       try {
-        //for payload const user = verify(jwt, seccret) console.log(user) => {expire:.., user:Admin, int...}
         verify(jwt, secret);
         return NextResponse.redirect("/table");
       } catch (e) {
@@ -23,7 +22,6 @@ export default function middleware(req) {
     if (jwt === undefined) {
       return NextResponse.redirect("/login");
     }
-
     try {
       verify(jwt, secret);
       return NextResponse.next();
@@ -31,5 +29,17 @@ export default function middleware(req) {
       return NextResponse.redirect("/login");
     }
   }
+  if (url.includes("/invoices")) {
+    if (jwt === undefined) {
+      return NextResponse.redirect("/login");
+    }
+    try {
+      verify(jwt, secret);
+      return NextResponse.next();
+    } catch (e) {
+      return NextResponse.redirect("/login");
+    }
+  }
+
   return NextResponse.next();
 }
