@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 
 const secret = process.env.SECRET;
-export default function handler(req, res) {
+export default async function (req, res) {
   if (req.method === "POST") {
     const { cookies } = req;
     const { id } = req.body;

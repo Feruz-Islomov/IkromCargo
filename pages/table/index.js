@@ -122,7 +122,7 @@ function Home() {
       tabledata: tabledata,
       date: date,
     };
-    const response = await axios.post("/api/invoice", formData);
+    const response = await axios.post("/api/auth/invoice", formData);
     setTurkish("");
     setUzbek("");
     setInvcode("");

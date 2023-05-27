@@ -58,7 +58,8 @@ export default function Invoices() {
     }, 1);
   };
   const deleteInvoice = async (item) => {
-    const response = await axios.post("/api/delete", item);
+    const response = await axios.post("/api/auth/delete", item);
+
     console.log(response);
     setInvs(response.data.invoices);
     alert(response.data.message);
