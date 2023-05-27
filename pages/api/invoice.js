@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-export default function post(req, res) {
+export default function handler(req, res) {
   console.log(req.method);
   console.log(req.body);
   if (req.method === "POST") {
