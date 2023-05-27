@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-export default async function (req, res) {
+export default function post(req, res) {
   console.log(req.method);
   console.log(req.body);
   if (req.method === "POST") {
@@ -15,5 +15,4 @@ export default async function (req, res) {
   } else {
     res.status(200).json({ message: "Method not allowed" });
   }
-  res.status(200).json({ message: "nothing worked" });
 }
