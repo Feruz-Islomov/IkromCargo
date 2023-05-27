@@ -24,7 +24,7 @@ export default async function (req, res) {
       fs.writeFileSync(filePath, JSON.stringify(data));
       res.status(200).json({ message: "deleted successfully", invoices: data });
     } catch (err) {
-      return res.json({ message: "Token is wrong!" });
+      return res.json({ message: err });
     }
   } else {
     res.status(405).json({ message: "Method not allowed" });

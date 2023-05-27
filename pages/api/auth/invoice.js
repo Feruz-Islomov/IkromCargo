@@ -17,6 +17,6 @@ export default async function (req, res) {
       res.status(200).json({ message: "Method not allowed" });
     }
   } catch (err) {
-    return res.json({ message: "Token is wrong!" });
+    return res.json({ message: err });
   }
 }
