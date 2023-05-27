@@ -13,7 +13,7 @@ export default async function (req, res) {
     }
     try {
       verify(token, secret);
-      const filePath = path.join(process.cwd(), "/pages/api/invoice.json");
+      const filePath = path.join(process.cwd(), "/invoice.json");
       const fileData = fs.readFileSync(filePath);
       const data = JSON.parse(fileData);
       //find and delete

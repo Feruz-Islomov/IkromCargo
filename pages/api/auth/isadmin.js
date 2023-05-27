@@ -1,6 +1,6 @@
 import { verify } from "jsonwebtoken";
 import users from "../users.json";
-import invoices from "../invoice.json";
+import invoices from "../../../invoice.json";
 import bcrypt from "bcryptjs";
 
 const secret = process.env.SECRET;

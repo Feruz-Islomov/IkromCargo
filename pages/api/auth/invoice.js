@@ -7,7 +7,7 @@ export default async function (req, res) {
   try {
     if (req.method === "POST") {
       const inv = req.body;
-      const filePath = path.join(process.cwd(), "/pages/api/invoice.json");
+      const filePath = path.join(process.cwd(), "/invoice.json");
       const fileData = fs.readFileSync(filePath);
       const data = JSON.parse(fileData);
       data.push(inv);
