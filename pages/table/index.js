@@ -123,7 +123,6 @@ function Home() {
       date: date,
     };
     const response = await axios.post("/api/invoice", formData);
-    alert(response.data.message);
     setTurkish("");
     setUzbek("");
     setInvcode("");
@@ -135,6 +134,9 @@ function Home() {
     setTotalPrice(0);
     setInvoicedata({});
     setTabledata([]);
+    if (response.data.message) {
+      alert(response.data.message);
+    }
   };
 
   return (

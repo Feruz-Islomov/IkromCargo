@@ -1,4 +1,5 @@
 import axios from "axios";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 
@@ -16,7 +17,7 @@ export default function Login() {
       const user = await axios.post("/api/auth/login", credentials);
 
       if (user.status === 200) {
-        router.push("/table");
+        router.push("/");
         alert(user.data.message);
       }
     } catch (e) {
@@ -26,6 +27,9 @@ export default function Login() {
 
   return (
     <div className="container">
+      <Link href={"/"}>
+        <button className="btn btn-secondary mt-2">Home</button>
+      </Link>
       <div className="row justify-content-center mt-5">
         <div className="col-md-6">
           <div className="card">

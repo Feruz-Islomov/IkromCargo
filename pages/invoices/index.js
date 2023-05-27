@@ -231,7 +231,8 @@ export default function Invoices() {
                     className="list-group-item list-group-item-info cursor mb-1 d-flex justify-content-between align-items-center"
                   >
                     <>
-                      {n + 1}. {item.invoice.recname} {item.invoice.tadress}
+                      {n + 1}. {item.invoice.recname} {item.invoice.tadress}{" "}
+                      {item.invoice.date}
                     </>
                     <i
                       className="fas fa-trash text-danger"

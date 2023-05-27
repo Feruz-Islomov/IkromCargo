@@ -8,21 +8,9 @@ export default function handler(req, res) {
     const fileData = fs.readFileSync(filePath);
     const data = JSON.parse(fileData);
     data.push(inv);
-
     fs.writeFileSync(filePath, JSON.stringify(data));
     res.status(200).json({ message: "Invoice qabul qilindi!" });
   } else {
-    res.status(405).json({ message: "Method not allowed" });
+    res.status(200).json({ message: "Method not allowed" });
   }
 }
-// export default async function (req, res) {
-//   const { cookies } = req;
-
-//   const jwt = cookies.OursiteJWT;
-
-//   if (!jwt) {
-//     return res.json({ message: "Invalid token!", bool: false });
-//   }
-
-//   return res.json({ data: "Top secret data!", bool: true });
-// }

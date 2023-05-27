@@ -11,7 +11,7 @@ export default function middleware(req) {
     if (jwt) {
       try {
         verify(jwt, secret);
-        return NextResponse.redirect("/table");
+        return NextResponse.redirect("/");
       } catch (e) {
         return NextResponse.next();
       }
