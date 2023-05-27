@@ -17,8 +17,8 @@ export default function Login() {
       const user = await axios.post("/api/auth/login", credentials);
 
       if (user.status === 200) {
-        router.push("/");
-        alert(user.data.message);
+        router.push("/table");
+        console.log(user.data.message);
       }
     } catch (e) {
       console.log("check log:", e);

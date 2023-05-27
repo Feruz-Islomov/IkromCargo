@@ -62,7 +62,7 @@ function Home() {
         totalPrice: totalPrice,
         date: date,
       });
-      alert("Malumot qo'shildi, bazaga yuboring!");
+      console.log("Malumot qo'shildi, bazaga yuboring!");
       document.getElementById("e").classList.remove("d-none");
     }
   }
@@ -115,7 +115,7 @@ function Home() {
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-    document.getElementById("e").classList.add("d-none");
+
     const formData = {
       id: uuidv4(),
       invoice: invoicedata,
@@ -135,8 +135,9 @@ function Home() {
     setInvoicedata({});
     setTabledata([]);
     if (response.data.message) {
-      alert(response.data.message);
+      console.log(response.data.message);
     }
+    document.getElementById("e").classList.add("d-none");
   };
 
   return (

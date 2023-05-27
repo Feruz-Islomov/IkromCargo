@@ -22,26 +22,26 @@ export default function Invoices() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const credentials = { username, password };
-    try {
-      const response = await axios.post("/api/auth/isadmin", credentials);
-      const user = response.data;
-      if (user.invoices !== undefined) {
-        setInvs(user.invoices);
-        document.getElementById("inp").classList.add("d-none");
-        document.getElementById("template").classList.remove("d-none");
-      } else {
-        alert(user.message);
-      }
-      // Handle successful response
-    } catch (error) {
-      if (error.response && error.response.status === 404) {
-        // Handle 404 error
-        console.log("404 page");
-      } else {
-        // Handle other errors
-        console.log("other errors");
-      }
+    // try {
+    const response = await axios.post("/api/auth/isadmin", credentials);
+    const user = response.data;
+    if (user.invoices !== undefined) {
+      setInvs(user.invoices);
+      document.getElementById("inp").classList.add("d-none");
+      document.getElementById("template").classList.remove("d-none");
+    } else {
+      console.log(user.message);
     }
+    // Handle successful response
+    // } catch (error) {
+    //   if (error.response && error.response.status === 404) {
+    //     // Handle 404 error
+    //     console.log("404 page");
+    //   } else {
+    //     // Handle other errors
+    //     console.log("other errors");
+    //   }
+    // }
   };
   const showInvoice = (item) => {
     // console.log(item);

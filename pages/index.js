@@ -42,14 +42,14 @@ export default function Home() {
         <div className="collapse navbar-collapse" id="navbarsExample02">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
-              <Link aria-current="page" href={"/invoices"}>
-                <div className="nav-link cursor">Admin</div>
-              </Link>
+              <a aria-current="page" className="nav-link" href="/invoices">
+                Admin
+              </a>
             </li>
             <li className="nav-item">
-              <Link aria-current="page" href={"/table"}>
-                <div className="nav-link cursor">Invoice</div>
-              </Link>
+              <a aria-current="page" className="nav-link" href="/table">
+                Invoice
+              </a>
             </li>
             <li className="nav-item">
               {isLoggedIn ? (
