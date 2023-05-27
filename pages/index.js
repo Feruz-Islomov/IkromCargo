@@ -30,7 +30,6 @@ export default function Home() {
 
   return (
     <div className="cont">
-      {/* <button onClick={handleGetUser}>user</button> */}
       <nav
         className="navbar navbar-expand navbar-dark bg-dark"
         aria-label="Second navbar example"
@@ -49,7 +48,7 @@ export default function Home() {
             </li>
             <li className="nav-item">
               <Link aria-current="page" href={"/table"}>
-                <div className="nav-link cursor">Table</div>
+                <div className="nav-link cursor">Invoice</div>
               </Link>
             </li>
             <li className="nav-item">

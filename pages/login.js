@@ -12,13 +12,16 @@ export default function Login() {
     e.preventDefault();
 
     const credentials = { username, password };
+    try {
+      const user = await axios.post("/api/auth/login", credentials);
 
-    const user = await axios.post("/api/auth/login", credentials);
-
-    if (user.status === 200) {
-      router.push("/table");
+      if (user.status === 200) {
+        router.push("/table");
+        alert(user.data.message);
+      }
+    } catch (e) {
+      console.log("check log:", e);
     }
-    console.log(user);
   };
 
   return (
