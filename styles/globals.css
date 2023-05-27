@@ -5,7 +5,12 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-
+.bg {
+  background-size: cover;
+  background-position: center;
+  background-image: url("../public/images/s3.jpg");
+  height: 600px;
+}
 .tabling > table,
 table th,
 table td {
@@ -14,15 +19,27 @@ table td {
   font-size: small;
   padding-left: 2px;
   padding-right: 2px;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
+table {
+  width: 100%;
+}
 .cursor {
   cursor: pointer;
 }
 .log {
   text-decoration: none;
 }
-
+.invoice > div > div {
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+}
+.reg {
+  border-top: 1px solid rgb(255, 255, 255);
+}
 a {
   color: inherit;
   text-decoration: none;

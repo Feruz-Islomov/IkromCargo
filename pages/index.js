@@ -1,8 +1,6 @@
 import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import Cookies from "js-cookie";
-import { useRouter } from "next/router";
 
 export default function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -33,7 +31,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
+    <div className="cont">
       <nav
         className="navbar navbar-expand navbar-dark bg-dark"
         aria-label="Second navbar example"
@@ -66,12 +64,10 @@ export default function Home() {
           </ul>
         </div>
       </nav>
-      {/* <div className="container">
-        <button onClick={() => handleGetUser()}> User </button>
-      </div> */}
+
       <div
         id="carouselExampleDark"
-        className="carousel carousel-dark slide"
+        className="   carousel carousel-dark slide"
         data-bs-ride="carousel"
       >
         <div className="carousel-indicators">
@@ -151,6 +147,7 @@ export default function Home() {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
+      <div className="bg"></div>
     </div>
   );
 }
