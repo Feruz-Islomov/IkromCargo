@@ -41,11 +41,11 @@ export default function Home() {
         </div>
         <div className="collapse navbar-collapse" id="navbarsExample02">
           <ul className="navbar-nav me-auto">
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a aria-current="page" className="nav-link" href="/invoices">
                 Admin
               </a>
-            </li>
+            </li> */}
             <li className="nav-item">
               <a aria-current="page" className="nav-link" href="/table">
                 Invoice

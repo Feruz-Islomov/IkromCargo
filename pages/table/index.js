@@ -241,7 +241,7 @@ function Home() {
                 aria-describedby="basic-addon1"
                 onChange={(e) => setRecphone(e.target.value)}
               />
-              <button
+              {/* <button
                 className="form-control btn btn-primary"
                 onClick={addInvInfo}
               >
@@ -253,7 +253,7 @@ function Home() {
                 onClick={handleSubmit}
               >
                 send
-              </button>
+              </button> */}
             </div>
             <div className="input-group mb-3">
               <input
@@ -418,7 +418,7 @@ function Home() {
           </table>
         </div>
         <div>
-          Jami: {totalPrice} so'm <br />
+          Total sum: {totalPrice} <br />
           Sana: {date}
         </div>
       </div>
