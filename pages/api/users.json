@@ -2,13 +2,13 @@
   {
     "id": 1,
     "name": "Ikrom",
-    "password": "a$2a$10$iDtfjU2HFWxDVNQnTrQFIuHlleQT3JiXnQ6KLAhvzwR2gUwyVh8Ze",
+    "password": "$2a$10$iDtfjU2HFWxDVNQnTrQFIuHlleQT3JiXnQ6KLAhvzwR2gUwyVh8Ze",
     "isAdmin": true
   },
   {
     "id": 2,
     "name": "User",
-    "password": "a$2a$10$sVUqV2HJwWtriKtSqzpqqe/Daf9ivkf23FVK4JNp0uvKmwggIwN7S",
+    "password": "$2a$10$sVUqV2HJwWtriKtSqzpqqe/Daf9ivkf23FVK4JNp0uvKmwggIwN7S",
     "isAdmin": false
   }
 ]
